@@ -21,8 +21,6 @@ app.get("/*", function(req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
-app.listen(port);
-
 // const fs = require("fs");
 // const options = {
 //   key: fs.readFileSync("./keys/openssl/key.pem"),
