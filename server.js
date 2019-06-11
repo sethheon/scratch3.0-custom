@@ -3,7 +3,7 @@ const https = require("https");
 const http = require("http");
 const favicon = require("express-favicon");
 const path = require("path");
-const port = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;
 
 const app = express();
 
@@ -23,16 +23,11 @@ app.get("/*", function(req, res) {
 
 app.listen(port);
 
-const fs = require("fs");
-const options = {
-  key: fs.readFileSync("./keys/openssl/key.pem"),
-  cert: fs.readFileSync("./keys/openssl/cert.pem"),
-  passphrase: "password"
-};
+// const fs = require("fs");
+// const options = {
+//   key: fs.readFileSync("./keys/openssl/key.pem"),
+//   cert: fs.readFileSync("./keys/openssl/cert.pem"),
+//   passphrase: "password"
+// };
 
-http.createServer(app).listen(3000, function() {
-  console.log("🐷 HTTP server listening on port 3000! 🐷");
-});
-https.createServer(options, app).listen(443, function() {
-  console.log("🐷 HTTPS server listening on port 443! 🐷");
-});
+app.listen(PORT, _ => console.log(`🐷 Listening on ${PORT} 🐷`));
